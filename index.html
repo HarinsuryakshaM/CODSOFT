@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCruise - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    
+        body, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://media.cntraveler.com/photos/5fd15994df72876c320b7f9d/master/w_1600%2Cc_limit/Airbus%2520A321XLR.jpeg') no-repeat center center/cover;
+            position: relative;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+        }
+
+        .container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.353);
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #01072ed2;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .brand {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+
+        .navbar div {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid transparent;
+            transition: background-color 0.3s, border 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #007bff;
+            border: 2px solid #0056b3;
+        }
+
+        .section {
+            width: 80%;
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-media a {
+            color: #333;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .btn-book {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .btn-book:hover {
+            background-color: #0056b3;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-success {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-success-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .featured-services {
+            background-color: white;
+            text-align: left;
+        }
+
+        .featured-services h2 {
+            text-align: center;
+            color: #423c3c9c;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2rem;
+        }
+
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 10px;
+        }
+
+        .listing {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 10px;
+        }
+
+        .listing:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .listing img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .listing h3 {
+            margin-top: 10px;
+            color: black;
+        }
+
+        .listing p {
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .listing ul {
+            padding-left: 20px;
+            color: black;
+        }
+
+        .listing a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #1a9dde;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .listing a:hover {
+            background-color: #0056b3;
+        }
+
+        .about-us {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-us .text {
+            width: 50%;
+            padding-right: 20px;
+        }
+
+        .about-us img {
+            width: 50%;
+            border-radius: 10px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100px;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .about-us {
+                flex-direction: column;
+            }
+
+            .about-us .text, .about-us img {
+                width: 100%;
+            }
+
+            .about-us .text {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+        .contact-form-box {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        border: 1px solid #ccc; 
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-form button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100px;
+    }
+
+    .contact-form button:hover {
+        background-color: #0056b3;
+    }
+
+    .social-media {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .social-media a {
+        color: #333333;
+        text-decoration: none;
+        font-size: 24px;
+    }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand"><font color="#0080ff">Sky</font>Cruise</div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </div>
+
+    <div class="container" id="home">
+        <div>
+            <h1>Welcome to <font color="#0080ff">Sky</font>Cruise</h1>
+            <p>Experience the best in air travel with us</p>
+            <button class="btn-book" id="btnBookNow">Book Now</button>
+        </div>
+    </div>
+
+    <div class="section" id="services">
+        <h2>Our Services</h2>
+        <div class="featured-services">
+            <div class="listings-grid">
+                <div class="listing">
+                    <img src="https://media.istockphoto.com/id/1281533018/photo/first-class-airplane-seat-with-tray-of-food.jpg?s=612x612&w=0&k=20&c=SL3rMLRW0VqYj6xAUSr4wqv4-WSTr97eW_iNt7du7jc=" alt="Service 1">
+                    <h3>First Class Travel</h3>
+                    <p>Experience luxury in the skies with our exclusive first class services. Enjoy gourmet meals, spacious seating, and personalized attention from our flight attendants.</p>
+                </div>
+                <div class="listing">
+                    <img src="https://skift.com/wp-content/uploads/2023/07/Astrova_Business_Day_4K_00-scaled.jpg" alt="Service 2">
+                    <h3>In-Flight Entertainment</h3>
+                    <p>Stay entertained throughout your journey with our extensive in-flight entertainment options. Watch movies, listen to music, and play games from the comfort of your seat.</p>
+                </div>
+                <div class="listing">
+                    <img src="https://cdn1.matadornetwork.com/blogs/1/2019/01/Woman-eating-steak-on-an-airplane-1200x853.jpg" alt="Service 3">
+                    <h3>Gourmet Dining</h3>
+                    <p>Indulge in gourmet dining with our specially curated menus, featuring a variety of cuisines to suit every palate. Our meals are prepared with the freshest ingredients by top chefs.</p>
+                </div>
+                <div class="listing">
+                    <img src="https://as2.ftcdn.net/v2/jpg/04/97/45/97/1000_F_497459757_7ckUhTo6sS8bGRLJ0IXGYp5WJNsYONMh.jpg" alt="Service 3">
+                    <h3>Baggage Handling</h3>
+                    <p>Trust us with the safe and efficient handling of your baggage. Our team ensures your luggage is managed with care and precision from check-in to arrival.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section about-us" id="about">
+        <div class="text">
+            <h2>About Us</h2>
+            <p>SkyCruise is a premier airline offering exceptional service and unmatched comfort for travelers. Our commitment to excellence has made us a leader in the industry.</p>
+        </div>
+        <img src="https://media.istockphoto.com/id/1210052672/photo/pilot-and-flight-attendant-in-private-jet.jpg?s=612x612&w=0&k=20&c=4yBIyNyd2DVk1vJsHpHrKZgibC_4mGb8jiZ4LxlsOhE=" alt="About Us">
+    </div>
+
+    <div class="section" id="contact">
+        <h2>Contact Us</h2>
+        <p>Reach out to us for any inquiries or assistance.</p>
+        <div class="contact-form-box">
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 SkyCruise. All rights reserved.
+    </div>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book Your Flight</h2>
+            <form id="bookingForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <select name="destination" required>
+                    <option value="" disabled selected>Select Destination</option>
+                    <option value="new-york">New York</option>
+                    <option value="london">London</option>
+                    <option value="paris">Paris</option>
+                </select>
+                <input type="date" name="date" required>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal-success">
+        <div class="modal-success-content">
+            <span class="close">&times;</span>
+            <h2>Booking Successful</h2>
+            <p>Thank you for booking with SkyCruise!</p>
+            <button id="btnCloseSuccess">Close</button>
+        </div>
+    </div>
+
+<div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Message Sent</h2>
+        <p>Thank you for contacting us. We will get back to you soon.</p>
+        <button id="btnCloseConfirmation">Close</button>
+    </div>
+</div>
+
+    <script>
+        const btnBookNow = document.getElementById('btnBookNow');
+        const bookingModal = document.getElementById('bookingModal');
+        const closeBookingModal = document.querySelector('.modal .close');
+        const successModal = document.getElementById('successModal');
+        const closeSuccessModal = document.querySelector('.modal-success .close');
+        const btnCloseSuccess = document.getElementById('btnCloseSuccess');
+        const bookingForm = document.getElementById('bookingForm');
+        const contactForm = document.getElementById('contactForm');
+    const confirmationModal = document.getElementById('confirmationModal');
+    const closeConfirmationModal = document.querySelector('.modal .close');
+    const btnCloseConfirmation = document.getElementById('btnCloseConfirmation');
+
+
+        btnBookNow.onclick = function() {
+            bookingModal.style.display = 'block';
+        };
+
+        closeBookingModal.onclick = function() {
+            bookingModal.style.display = 'none';
+        };
+
+        closeSuccessModal.onclick = function() {
+            successModal.style.display = 'none';
+        };
+
+        btnCloseSuccess.onclick = function() {
+            successModal.style.display = 'none';
+        };
+
+        window.onclick = function(event) {
+            if (event.target === bookingModal) {
+                bookingModal.style.display = 'none';
+            }
+            if (event.target === successModal) {
+                successModal.style.display = 'none';
+            }
+        };
+
+        bookingForm.onsubmit = function(event) {
+            event.preventDefault();
+            bookingModal.style.display = 'none';
+            successModal.style.display = 'block';
+        };
+    closeConfirmationModal.onclick = function() {
+        confirmationModal.style.display = 'none';
+    };
+
+    btnCloseConfirmation.onclick = function() {
+        confirmationModal.style.display = 'none';
+    };
+
+    contactForm.onsubmit = function(event) {
+        event.preventDefault();
+        confirmationModal.style.display = 'block';
+    };
+
+    window.onclick = function(event) {
+        if (event.target === confirmationModal) {
+            confirmationModal.style.display = 'none';
+        }
+    };
+    </script>
+</body>
+</html>

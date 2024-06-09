@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 10px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styling */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header .profile-image {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+        }
+
+        header nav ul li {
+            margin: 10px 0;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Section styling */
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section:nth-child(even) {
+            background: #ffe4e1; /* Light pink */
+        }
+
+        section:nth-child(odd) {
+            background: #fff;
+        }
+
+        section h2 {
+            margin-bottom: 10px;
+        }
+
+        /* Contact section styling */
+        #contact p {
+            margin: 10px 0;
+        }
+
+        .social-media img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .social-media a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* Responsive styles */
+        @media (min-width: 600px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            header nav ul {
+                flex-direction: row;
+            }
+
+            header nav ul li {
+                margin: 0 15px;
+            }
+        }
+
+        /* Table styling */
+        .qualification-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .qualification-table th, .qualification-table td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .qualification-table th {
+            background-color: #7e7e7e;
+            color: white;
+        }
+
+        /* Resume button styling */
+        .resume-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .resume-button:hover {
+            background-color: #555;
+        }
+
+        /* Project section styling */
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .project-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .project-item img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 600px) {
+            .project-item {
+                width: 48%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="id.png" alt="HARIN SURYAKSHA M" class="profile-image">
+            <h1>HARIN SURYAKSHA M</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#hobbies">Hobbies</a></li>
+                    <li><a href="#languages">Languages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>As a computer science enthusiast, I'm driven by my curiosity to explore the intricate world of technology. From coding elegant solutions to dissecting complex algorithms, I find immense joy in unraveling the possibilities that the digital realm offers. My insatiable appetite for learning fuels my journey, and I'm constantly seeking ways to broaden my horizons by mastering new programming languages, diving into emerging tech trends, and collaborating on innovative projects.</p>
+            <p>Beyond the lines of code, I'm a fervent believer in teamwork's power to turn ideas into reality. I thrive in collaborative environments where diverse perspectives converge to build transformative products. Outside the tech sphere, I enjoy exploring the outdoors, which complements my dedication to structured problem-solving with the boundless creativity that nature inspires. My aspiration is to contribute my technical prowess, insatiable curiosity, and teamwork spirit to a forward-thinking tech team that values innovation and growth.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Responsive Web Design</li>
+                <li>Communication</li>
+                <li>Teamwork</li>
+                <li>Problem solving</li>
+                <li>Adaptability</li>
+            </ul>
+        </section>
+
+        <section class="projects" id="projects">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="project-container">
+                    <div class="project-item">
+                        <h3>Hotel Website</h3>
+                        <p>Designed a website for Hotel TAJ in first semester.</p>
+                    </div>
+                    <div class="project-item">
+                        <h3>Canteen Webpage</h3>
+                        <p>Designed a webpage for a Canteen for College in second semester.</p>
+                    </div>
+                    <div class="project-item">
+                        <h3>Event Website</h3>
+                        <p>Designed a website for Event in second semester</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Educational Qualification</h2>
+            <hr>
+            <table class="qualification-table">
+                <tr>
+                    <th>SLNO</th>
+                    <th>Qualification</th>
+                    <th>Board/University</th>
+                    <th>Marks Obtained (%)</th>
+                    <th>Year of Pass</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>CBSE</td>
+                    <td>CBSE</td>
+                    <td>75%</td>
+                    <td>2020</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>PU</td>
+                    <td>PU BOARD</td>
+                    <td>88%</td>
+                    <td>2022</tr>
+            </table>
+            <hr>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Drawing</li>
+                <li>Sports</li>
+                <li>Travelling</li>
+                <li>Social work</li>
+            </ul>
+        </section>
+
+        <section id="languages">
+            <h2>Languages</h2>
+            <ul>
+                <li>Kannada</li>
+                <li>English</li>
+                <li>Hindi</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p class="social-media">
+                <a href="mailto:your.email@example.com">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email"> Email: Hsuryaksha879@gmail.com
+                </a>
+            </p>
+            <p class="social-media">
+                <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone"> Phone: 9900009900
+            </p>
+            <p class="social-media">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram"> Instagram: harin_
+                </a>
+            </p>
+            <p class="social-media">
+                <a href="https://www.linkedin.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn"> LinkedIn: Harin S M
+                </a>
+            </p>
+        </section>
+
+        <section id="resume">
+            <h2>Resume</h2>
+            <p>Download my resume by clicking the button below:</p>
+            <a href="path/to/your/resume.pdf" download class="resume-button">Download Resume</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HARIN SURYAKSHA M</p>
+        </div>
+    </footer>
+</body>
+</html>
